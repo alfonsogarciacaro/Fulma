@@ -16,6 +16,6 @@ module Footer =
         div
             [ yield classBaseList
                         Bulma.Footer.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children

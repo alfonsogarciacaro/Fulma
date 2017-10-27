@@ -66,7 +66,7 @@ module Level =
         nav [ yield classBaseList
                         Bulma.Level.Container
                         [ Bulma.Level.Mobile.IsHorizontal, opts.IsMobile
-                          opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                          opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -77,7 +77,7 @@ module Level =
         let opts = genericParse options
 
         div [ yield classBaseList Bulma.Level.Left
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                                  [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -85,7 +85,7 @@ module Level =
         let opts = genericParse options
 
         div [ yield classBaseList Bulma.Level.Right
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                                  [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -115,7 +115,7 @@ module Level =
         nav [ yield classBaseList
                         Bulma.Level.Item.Container
                         [ Bulma.Level.Item.HasTextCentered, opts.HasTextCentered
-                          opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                          opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -123,7 +123,7 @@ module Level =
         let opts = genericParse options
 
         p [ yield classBaseList Bulma.Level.Item.Heading
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                                  [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
             yield! opts.Props ]
           children
 
@@ -131,6 +131,6 @@ module Level =
         let opts = genericParse options
 
         p [ yield classBaseList Bulma.Level.Item.Title
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                                  [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
             yield! opts.Props ]
           children

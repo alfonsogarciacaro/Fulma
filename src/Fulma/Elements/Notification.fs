@@ -55,8 +55,8 @@ module Notification =
         let opts = options |> List.fold parseOptions Options.Empty
 
         div [ yield (classBaseList Bulma.Notification.Container
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome
-                              opts.Level.Value, opts.Level.IsSome ]) :> IHTMLProp
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass
+                              opts.Level.Value, Option.isSome opts.Level ]) :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -66,6 +66,6 @@ module Notification =
         button
             [ yield classBaseList
                         Bulma.Notification.Delete.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children

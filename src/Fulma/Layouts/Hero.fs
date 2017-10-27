@@ -83,9 +83,9 @@ module Hero =
         section [ yield classBaseList
                         Bulma.Hero.Container
                         [ Bulma.Hero.Style.IsBold, opts.IsBold
-                          opts.Color.Value , opts.Color.IsSome
-                          opts.Size.Value, opts.Size.IsSome
-                          opts.CustomClass.Value, opts.CustomClass.IsSome
+                          opts.Color.Value , Option.isSome opts.Color
+                          opts.Size.Value, Option.isSome opts.Size
+                          opts.CustomClass.Value, Option.isSome opts.CustomClass
                          ] :> IHTMLProp
                   yield! opts.Props ]
             children
@@ -115,7 +115,7 @@ module Hero =
 
         div [ yield classBaseList
                         Bulma.Hero.Head
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -124,7 +124,7 @@ module Hero =
 
         div [ yield classBaseList
                         Bulma.Hero.Body
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -133,7 +133,7 @@ module Hero =
 
         div [ yield classBaseList
                         Bulma.Hero.Foot
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -142,7 +142,7 @@ module Hero =
 
         div [ yield classBaseList
                         Bulma.Hero.Video.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -151,6 +151,6 @@ module Hero =
 
         div [ yield classBaseList
                         Bulma.Hero.Buttons.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children

@@ -54,7 +54,7 @@ module Section =
 
         section [ yield classBaseList
                         Bulma.Section.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome
-                          opts.Spacing.Value, opts.Spacing.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass
+                          opts.Spacing.Value, Option.isSome opts.Spacing ] :> IHTMLProp
                   yield! opts.Props ]
             children

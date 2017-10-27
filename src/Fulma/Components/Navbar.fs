@@ -153,7 +153,7 @@ module Navbar =
                                         Bulma.Navbar.Item.Style.IsTab, opts.IsTab
                                         Bulma.Navbar.Item.IsHoverable, opts.IsHoverable
                                         Bulma.Navbar.Item.Style.HasDropdown, opts.HasDropdown
-                                        opts.CustomClass.Value, opts.CustomClass.IsSome ]) :> IHTMLProp
+                                        opts.CustomClass.Value, Option.isSome opts.CustomClass ]) :> IHTMLProp
                       yield! opts.Props ]
                 children
 
@@ -209,30 +209,21 @@ module Navbar =
     module Brand =
         let brand element (options: GenericOption list) children =
             let opts = genericParse options
-
-            element [ yield classBaseList Bulma.Navbar.Brand
-                                      [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-                      yield! opts.Props ]
-                children
+            let class' = Helpers.classes Bulma.Navbar.Brand [opts.CustomClass] []
+            element (class'::opts.Props) children
 
     module Start =
         let start element (options: GenericOption list) children =
             let opts = genericParse options
-
-            element [ yield classBaseList Bulma.Navbar.Start
-                                      [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-                      yield! opts.Props ]
-                children
+            let class' = Helpers.classes Bulma.Navbar.Start [opts.CustomClass] []
+            element (class'::opts.Props) children
 
     module End =
 
         let ``end`` element (options: GenericOption list) children =
             let opts = genericParse options
-
-            element [ yield classBaseList Bulma.Navbar.End
-                                      [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-                      yield! opts.Props ]
-                children
+            let class' = Helpers.classes Bulma.Navbar.End [opts.CustomClass] []
+            element (class'::opts.Props) children
 
     let navbar (options : Navbar.Option list) children =
         let parseOptions (result: Navbar.Options ) opt =
@@ -246,28 +237,28 @@ module Navbar =
 
         nav [ yield (classBaseList Bulma.Navbar.Container
                                    [ Bulma.Navbar.Style.HasShadow, opts.HasShadow
-                                     opts.CustomClass.Value, opts.CustomClass.IsSome
+                                     opts.CustomClass.Value, Option.isSome opts.CustomClass
                                      Bulma.Navbar.Style.IsTransparent, opts.IsTransparent]) :> IHTMLProp
               yield! opts.Props ]
             children
 
-    let link_a = Link.link a
-    let link_div = Link.link div
+    let link_a x y = Link.link a x y
+    let link_div x y = Link.link div x y
 
-    let item_a = Item.item a
-    let item_div = Item.item div
+    let item_a x y = Item.item a x y
+    let item_div x y = Item.item div x y
 
-    let dropdown_a = Dropdown.dropdown a
-    let dropdown_div = Dropdown.dropdown div
+    let dropdown_a x y = Dropdown.dropdown a x y
+    let dropdown_div x y = Dropdown.dropdown div x y
 
-    let brand_a = Brand.brand a
-    let brand_div = Brand.brand div
+    let brand_a x y = Brand.brand a x y
+    let brand_div x y = Brand.brand div x y
 
-    let start_a = Start.start a
-    let start_div = Start.start div
+    let start_a x y = Start.start a x y
+    let start_div x y = Start.start div x y
 
-    let end_a = End.``end`` a
-    let end_div = End.``end`` div
+    let end_a x y = End.``end`` a x y
+    let end_div x y = End.``end`` div x y
 
     let menu options children =
         let parseOptions (result: Menu.Options ) opt =
@@ -280,31 +271,22 @@ module Navbar =
 
         div [ yield (classBaseList Bulma.Navbar.Menu.Container
                                     [ Bulma.Navbar.Menu.State.IsActive, opts.IsActive
-                                      opts.CustomClass.Value, opts.CustomClass.IsSome ]) :> IHTMLProp
+                                      opts.CustomClass.Value, Option.isSome opts.CustomClass ]) :> IHTMLProp
               yield! opts.Props ]
               children
 
 
     let burger (options: GenericOption list) children =
         let opts = genericParse options
-
-        div [ yield classBaseList Bulma.Navbar.Burger
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-              yield! opts.Props ]
-            children
+        let class' = Helpers.classes Bulma.Navbar.Burger [opts.CustomClass] []
+        div (class'::opts.Props) children
 
     let content (options: GenericOption list) children =
         let opts = genericParse options
-
-        div [ yield classBaseList Bulma.Navbar.Content
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-              yield! opts.Props ]
-            children
+        let class' = Helpers.classes Bulma.Navbar.Content [opts.CustomClass] []
+        div (class'::opts.Props) children
 
     let divider (options: GenericOption list) children =
         let opts = genericParse options
-
-        div [ yield classBaseList Bulma.Navbar.Divider
-                                  [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-              yield! opts.Props ]
-            children
+        let class' = Helpers.classes Bulma.Navbar.Divider [opts.CustomClass] []
+        div (class'::opts.Props) children

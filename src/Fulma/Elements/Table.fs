@@ -52,7 +52,7 @@ module Table =
             [ yield classBaseList Bulma.Table.Container [ Bulma.Table.Style.IsBordered, opts.IsBordered
                                                           Bulma.Table.Style.IsStripped, opts.IsStripped
                                                           Bulma.Table.Spacing.IsNarrow, opts.IsNarrow
-                                                          opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                                                          opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 

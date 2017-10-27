@@ -48,6 +48,6 @@ module Delete =
         a [ yield ClassName (Helpers.generateClassName
                                 Bulma.Delete.Container [ opts.Size; opts.CustomClass ]) :> IHTMLProp
             yield! opts.Props
-            if opts.OnClick.IsSome then
+            if Option.isSome opts.OnClick then
                 yield DOMAttr.OnClick opts.OnClick.Value :> IHTMLProp ]
             children

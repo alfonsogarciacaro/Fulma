@@ -43,7 +43,7 @@ module Content =
         div
             [ yield classBaseList
                         Bulma.Content.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome
-                          opts.Size.Value, opts.Size.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass
+                          opts.Size.Value, Option.isSome opts.Size ] :> IHTMLProp
               yield! opts.Props ]
             children

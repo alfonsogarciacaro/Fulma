@@ -59,8 +59,8 @@ module Container =
 
         div [ yield classBaseList
                         Bulma.Container.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass
                           Bulma.Container.IsFluid, opts.IsFluid
-                          opts.Breakpoint.Value, opts.Breakpoint.IsSome ] :> IHTMLProp
+                          opts.Breakpoint.Value, Option.isSome opts.Breakpoint ] :> IHTMLProp
               yield! opts.Props ]
             children

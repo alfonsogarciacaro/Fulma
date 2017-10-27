@@ -169,7 +169,7 @@ module Calendar =
 
         div [ yield classBaseList
                         Classes.Calendar.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass
                           Classes.Calendar.Size.IsLarge, opts.IsLarge ] :> IHTMLProp
               yield! opts.Props ]
             children
@@ -180,7 +180,7 @@ module Calendar =
         div
             [ yield classBaseList
                         Classes.Calendar.Header
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -190,7 +190,7 @@ module Calendar =
         div
             [ yield classBaseList
                         Classes.Calendar.Body
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -200,7 +200,7 @@ module Calendar =
         div
             [ yield classBaseList
                         Classes.Calendar.Events
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -230,8 +230,8 @@ module Calendar =
 
             div [ yield classBaseList
                             Classes.Calendar.Date.Container
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome
-                              opts.Range.Value, opts.Range.IsSome
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass
+                              opts.Range.Value, Option.isSome opts.Range
                               Classes.Calendar.Date.IsDisabled, opts.IsDisabled ] :> IHTMLProp
                   yield! opts.Props ]
                 children
@@ -248,7 +248,7 @@ module Calendar =
 
             button [ yield classBaseList
                             Classes.Calendar.Date.Item.Container
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass
                               Classes.Calendar.Date.Item.IsToday, opts.IsToday
                               Classes.Calendar.Date.Item.State.IsActive, opts.IsActive ] :> IHTMLProp
                      yield! opts.Props ]
@@ -265,8 +265,8 @@ module Calendar =
 
         div [ yield classBaseList
                         Classes.Calendar.Event.Container
-                        [ opts.CustomClass.Value, opts.CustomClass.IsSome
-                          opts.Color.Value, opts.Color.IsSome ] :> IHTMLProp
+                        [ opts.CustomClass.Value, Option.isSome opts.CustomClass
+                          opts.Color.Value, Option.isSome opts.Color ] :> IHTMLProp
               yield! opts.Props ]
             children
 
@@ -288,7 +288,7 @@ module Calendar =
             div
                 [ yield classBaseList
                             Classes.Calendar.Nav.Container
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
                   yield! opts.Props ]
                 children
 
@@ -298,7 +298,7 @@ module Calendar =
             div
                 [ yield classBaseList
                             Classes.Calendar.Nav.Left
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
                   yield! opts.Props ]
                 children
 
@@ -308,6 +308,6 @@ module Calendar =
             div
                 [ yield classBaseList
                             Classes.Calendar.Nav.Right
-                            [ opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                            [ opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
                   yield! opts.Props ]
                 children

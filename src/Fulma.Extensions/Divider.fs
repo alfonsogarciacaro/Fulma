@@ -53,6 +53,6 @@ module Divider =
 
         div [ yield classList [ Classes.Divider, not opts.IsVertical
                                 Classes.IsVertical, opts.IsVertical
-                                opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
-              if opts.Label.IsSome then yield Data("content", opts.Label.Value)
+                                opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
+              if Option.isSome opts.Label then yield Data("content", opts.Label.Value)
               yield! opts.Props ] [ ]

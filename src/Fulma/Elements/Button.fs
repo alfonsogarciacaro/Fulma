@@ -138,10 +138,10 @@ module Button =
                  [ Bulma.Button.Styles.IsOutlined, opts.IsOutlined
                    Bulma.Button.Styles.IsInverted, opts.IsInverted
                    Bulma.Button.Styles.IsLink, opts.IsLink
-                   opts.CustomClass.Value, opts.CustomClass.IsSome ] :> IHTMLProp
+                   opts.CustomClass.Value, Option.isSome opts.CustomClass ] :> IHTMLProp
               if opts.IsDisabled then
                 yield Disabled true :> IHTMLProp
-              if opts.OnClick.IsSome then
+              if Option.isSome opts.OnClick then
                 yield DOMAttr.OnClick opts.OnClick.Value :> IHTMLProp
               yield! opts.Props ]
             children

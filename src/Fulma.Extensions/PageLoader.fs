@@ -67,7 +67,7 @@ module PageLoader =
 
         div [ yield classBaseList
                     (Helpers.generateClassName Classes.PageLoader  [ opts.Color])
-                    [ opts.CustomClass.Value, opts.CustomClass.IsSome
+                    [ opts.CustomClass.Value, Option.isSome opts.CustomClass
                       Classes.IsActive , opts.IsActive ] :> IHTMLProp
               yield! opts.Props ]
             [ ]

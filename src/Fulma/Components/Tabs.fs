@@ -94,8 +94,8 @@ module Tabs =
 
         let opts = options |> List.fold parseOptions Options.Empty
         div [ yield (classBaseList Bulma.Tabs.Container
-                                    [ opts.Alignment.Value, opts.Alignment.IsSome
-                                      opts.Size.Value, opts.Size.IsSome
+                                    [ opts.Alignment.Value, Option.isSome opts.Alignment
+                                      opts.Size.Value, Option.isSome opts.Size
                                       Bulma.Tabs.Style.IsBoxed, opts.IsBoxed
                                       Bulma.Tabs.Style.IsFullwidth, opts.IsFullwidth
                                       Bulma.Tabs.Style.IsToggle, opts.IsToggle ]) :> IHTMLProp
